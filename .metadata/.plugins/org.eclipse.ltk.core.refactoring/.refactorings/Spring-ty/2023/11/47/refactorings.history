@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Spring-ty/src/main/resources/templates/hello.html&apos; to &apos;hell.html&apos;" description="Rename resource &apos;hello.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/hello.html" name="hell.html" stamp="1700551435971" updateReferences="true"/>
+</session>
