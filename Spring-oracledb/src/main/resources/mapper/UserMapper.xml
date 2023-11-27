@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.kh.ThymeSpring.mapper.UserMapper">
+	<!--  전체 조회 -->
+	<select id="getAllUsers" resultType="com.kh.ThymeSpring.model.User">
+	   SELECT * FROM memberinfo
+	</select>
+	<!-- 아이디 1개 조회 -->
+	<select id="getUserById" parameterType="int" resultType="com.kh.ThymeSpring.model.User"> 
+											 
+		SELECT * FROM memberinfo WHERE MNO = #{mno}
+	</select>
+	<insert id="insertUser"  parameterType="com.kh.ThymeSpring.model.User">
+		INSERT INTO MEMBERINFO (MNO, MNAME, MEMAIL, MBIRTH)
+		VALUES (#{mno}, #{mname}, #{memail}, #{mbirth})
+	</insert>
+	
+	<update id="updateUser" parameterType="com.kh.ThymeSpring.model.User">
+	UPDATE MEMBERINFO
+	SET
+	MNAME = #{mname},
+	MEMAIL = #{memail}
+	WHERE MNO = #{mno}
+	</update>
+	
+	<delete id="deleteUser" parameterType="int">
+	DELETE FROM MEMBERINFO WHERE MNO = #{mno}
+	</delete>
+
+	
+</mapper>

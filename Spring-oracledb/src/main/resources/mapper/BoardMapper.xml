@@ -3,9 +3,35 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.kh.ThymeSpring.mapper.BoardMapper">
-
-    <select id="getAllBoard" resultType="com.kh.ThymeSpring.model.Board">
+	<resultMap id="BoardResultMap" type="com.kh.ThymeSpring.model.Board">
+		<id property="board_id" column="board_id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="author" column="author"/>
+	</resultMap>
+	
+	<!-- 게시판에서 게시물 1개 상세보기 -->
+    <select id="getBoardById" parameterType="int" resultMap="BoardResultMap">
+        SELECT * FROM BOARD WHERE= board_id=#{board_id}
+    </select>
+    <!-- 게시판에서 게시글 전체 목록 가져오기 -->
+    <select id="getAllBoard" resultMap="BoardResultMap">
         SELECT * FROM BOARD
     </select>
-
+    <!-- 게시물 작성하기 -->
+	<insert id="insertBoard"  parameterType="com.kh.ThymeSpring.model.Board">
+		INSERT INTO BOARD (BOARD_ID, TITLE, CONTENT, AUTHOR)
+		VALUES (#{board_id}, #{title}, #{content}, #{author})
+	</insert>
+	<!-- 게시물 수정하기 -->
+	<update id="updateBoard" parameterType="com.kh.ThymeSpring.model.Board">
+	UPDATE BOARD
+	SET TITLE = #{title}, content = #{content}, author= #{author}
+	WHERE
+	BOARD_ID = #{board_id}
+	</update>
+	<!-- 게시물 삭제하기 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM BOARD WHERE BOARD_ID = #{board_id}
+	</delete>
 </mapper>
