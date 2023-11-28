@@ -34,4 +34,6 @@ public class UserService {
 	public void deleteUser(int mno) {
 		userMapper.deleteUser(mno);
 	}
+	
+	
 }

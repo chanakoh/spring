@@ -24,11 +24,12 @@
 			<td th:text="${board.author}"></td>
 			<td> 
 				<!--게시물 상세보기 버튼 추가 -->
-				<a th:href="@{/boards/{id}(id=${board.board_id}}">View</a>
+				
+				<a th:href="@{/boards/{id}(id=${board.board_id})}">View</a>
 				<!--게시물 수정하기 버튼 추가 -->
-				<a th:href="@{/boards/update/{id}(id=${board.board_id}}">Update</a>
+				<a th:href="@{/boards/update/{id}(id=${board.board_id})}">Update</a>
 				<!--게시물 삭제하기 버튼 추가 -->	
-				<a th:href="@{/boards/delete{id}(id=${board.board_id}}">Delete</a>
+				<a th:href="@{/boards/delete{id}(id=${board.board_id})}">Delete</a>
 			</td>
 		</tr>
 	</tbody>
@@ -41,8 +42,10 @@
 		var checkDelete = confirm('정말 모든 게시물을 삭제하시겠습니까?')
 		if(checkDelete){
 			alert('게시물이 삭제되었습니다.');
+			return true;
 		}else{
 			alert('게시물 삭제가 취소되었습니다.');
+			return false;
 		}
 	}
 	

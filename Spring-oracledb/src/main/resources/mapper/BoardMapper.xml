@@ -12,7 +12,7 @@
 	
 	<!-- 게시판에서 게시물 1개 상세보기 -->
     <select id="getBoardById" parameterType="int" resultMap="BoardResultMap">
-        SELECT * FROM BOARD WHERE= board_id=#{board_id}
+        SELECT * FROM BOARD WHERE board_id= #{board_id}
     </select>
     <!-- 게시판에서 게시글 전체 목록 가져오기 -->
     <select id="getAllBoard" resultMap="BoardResultMap">
@@ -33,5 +33,8 @@
 	<!-- 게시물 삭제하기 -->
 	<delete id="deleteBoard" parameterType="int">
 		DELETE FROM BOARD WHERE BOARD_ID = #{board_id}
+	</delete>
+	<delete id="deleteAllBoards">
+		DELETE FROM BOARD
 	</delete>
 </mapper>

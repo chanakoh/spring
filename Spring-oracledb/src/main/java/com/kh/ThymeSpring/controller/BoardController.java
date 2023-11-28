@@ -45,7 +45,7 @@ public class BoardController {
 			return "board-form"; //board-form.html 템플릿에서 해당 뷰를 보여줌
 		}
 		//postMapping을 사용해서 작성해놓은 insert HTML Form 가져온다.
-		@PostMapping("create")
+		@PostMapping("/create")
 		public String createBoard(@ModelAttribute Board board) {
 			boardService.registerBoard(board);
 			//유저가 회원가입을 성공할 경우 이동하는 경로
@@ -75,7 +75,6 @@ public class BoardController {
 		//게시물 모두 삭제
 		@GetMapping("/delete-all-boards")
 		public String deleteAllBoards() {
-			boardService.deleteAllBoards();
 			return"redirect:/boards";
 		}
 		
