@@ -16,12 +16,7 @@ import lombok.Setter;
 //@Table(name="ProductItem")
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,
-								generator = "sequence_name")
-	@SequenceGenerator(name = "product_sequence", 
-						sequenceName="PRODUCT_SEQ",
-						allocationSize = 1)
-	//MySQL -> @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	//@Column(name="product_id")
 	private Long product_id;
 	//@Column(nullable=false,length=50)
